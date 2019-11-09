@@ -16,13 +16,11 @@ function uchart(canvas, y, line=false, margin=30) {
     ctx.stroke()
   })
 
-  ctx.scale(1,-1)
-  ctx.translate(0,-canvas.height)
-
   ctx.beginPath()
   y.forEach((yi, i) => {
     let x = margin + i * (canvas.width - 2*margin) / y.length
-    let y_pos = margin + (yi - min) * (canvas.height - 2*margin) / (max-min)
+    let y_pos = (margin + (yi - min) * (canvas.height - 2*margin) / (max-min))
+    y_pos = canvas.height - y_pos
 
     if (line) {
       if (i == 0) {
