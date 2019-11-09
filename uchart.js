@@ -2,11 +2,10 @@ function uchart(canvas, y, line=false, margin=30) {
   let ctx = canvas.getContext('2d')
   let min = y.reduce((min, yi) => yi < min ? yi : min, Infinity)
   let max = y.reduce((max, yi) => yi > max ? yi : max, -Infinity)
+  let y_labels = [max, (max+min)/2, min]
 
   ctx.strokeStyle = '#ccc'
   ctx.strokeWidth = .5
-
-  y_labels = [max, (max+min)/2, min]
 
   ;[margin, canvas.height/2, canvas.height - margin].forEach((y, i) => {
     ctx.fillText(y_labels[i], 5, y + 3)
