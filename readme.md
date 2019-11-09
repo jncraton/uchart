@@ -1,11 +1,9 @@
 uchart
 ======
 
-A microscopic js charting library.
+A microscopic js charting library in under 512 bytes.
 
 I was in need of a very basic js charting library. I couldn't find one to meet my needs, so I wrote this one.
-
-This library is very small. It currently comes in at under 500 bytes minified.
 
 Usage
 -----
