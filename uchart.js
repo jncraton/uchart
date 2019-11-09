@@ -6,10 +6,10 @@ function uchart(canvas, y, line=false, margin=30) {
   ctx.strokeStyle = '#ccc'
   ctx.strokeWidth = .5
 
-  labels = [min, (max+min)/2, max]
+  y_labels = [min, (max+min)/2, max]
 
   ;[margin, canvas.height/2, canvas.height - margin].forEach((y, i) => {
-    ctx.fillText(labels[i], 5, y + 3)
+    ctx.fillText(y_labels[i], 5, y + 3)
     ctx.beginPath()
     ctx.moveTo(margin, y)
     ctx.lineTo(canvas.width - margin, y)
@@ -35,5 +35,4 @@ function uchart(canvas, y, line=false, margin=30) {
     ctx.fillRect(x,y_pos-3,6,6)
   })
   ctx.stroke()
-
 }
