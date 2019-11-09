@@ -23,11 +23,8 @@ function uchart(canvas, y, line=false, margin=30) {
     y_pos = canvas.height - y_pos
 
     if (line) {
-      if (i == 0) {
-        ctx.moveTo(x,y_pos)
-      } else {
-        ctx.lineTo(x+3,y_pos)
-      }
+      if (i == 0) ctx.moveTo(x,y_pos)
+      else ctx.lineTo(x+3,y_pos)
     }
 
     ctx.fillRect(x,y_pos-3,6,6)
