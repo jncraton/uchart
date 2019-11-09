@@ -3,14 +3,13 @@ function uchart(canvas, y, line=false, margin=30) {
   let min = y.reduce((min, yi) => yi < min ? yi : min, Infinity)
   let max = y.reduce((max, yi) => yi > max ? yi : max, -Infinity)
 
-  ctx.fillText(min, 5, canvas.height - margin + 3)
-  ctx.fillText((max+min)/2, 5, canvas.height/2 + 3)
-  ctx.fillText(max, 5, margin + 3)
-
   ctx.strokeStyle = '#ccc'
   ctx.strokeWidth = .5
 
-  ;[margin, canvas.height/2, canvas.height - margin].forEach((y) => {
+  labels = [min, (max+min)/2, max]
+
+  ;[margin, canvas.height/2, canvas.height - margin].forEach((y, i) => {
+    ctx.fillText(labels[i], 5, y + 3)
     ctx.beginPath()
     ctx.moveTo(margin, y)
     ctx.lineTo(canvas.width - margin, y)
