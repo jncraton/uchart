@@ -5,6 +5,8 @@ A microscopic js charting library.
 
 I was in need of a very basic js charting library. I couldn't find one to meet my needs, so I wrote this one.
 
+This library is very small. It currently comes in at under 500 bytes minified.
+
 Usage
 -----
 
