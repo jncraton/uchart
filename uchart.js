@@ -1,9 +1,13 @@
-function uchart(canvas, y, margin=10) {
+function uchart(canvas, y, margin=30) {
   let ctx = canvas.getContext('2d')
-  ctx.scale(1,-1)
-  ctx.translate(0,-canvas.height)
   let min = y.reduce((min, yi) => yi < min ? yi : min, Infinity)
   let max = y.reduce((max, yi) => yi > max ? yi : max, -Infinity)
+
+  ctx.fillText(min, 5, canvas.height - margin)
+  ctx.fillText(max, 5, margin)
+
+  ctx.scale(1,-1)
+  ctx.translate(0,-canvas.height)
 
   y.forEach((yi, i) => {
     let x = margin + i * (canvas.width - 2*margin) / y.length
