@@ -6,7 +6,7 @@ function uchart(canvas, y, line=false, margin=30) {
   ctx.strokeStyle = '#ccc'
   ctx.strokeWidth = .5
 
-  y_labels = [min, (max+min)/2, max]
+  y_labels = [max, (max+min)/2, min]
 
   ;[margin, canvas.height/2, canvas.height - margin].forEach((y, i) => {
     ctx.fillText(y_labels[i], 5, y + 3)
