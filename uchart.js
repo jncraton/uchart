@@ -10,13 +10,13 @@ uchart = (ctx, y, line, margin=36) => {
     [margin,max], 
     [height/2,(max+min)/2], 
     [height - margin, min]
-  ].forEach(([y,label]) => {
+  ].map(([y,label]) => {
     ctx.fillText(label, margin, y - 3)
     ctx.moveTo(margin, y)
     ctx.lineTo(width - margin, y)
   })
 
-  y.forEach((yi, i) => {
+  y.map((yi, i) => {
     let x = margin*2 + i * (width - 3*margin) / y.length
     let y_pos = margin + (yi - min) * (height - 2*margin) / (max-min)
     y_pos = height - y_pos
