@@ -1,4 +1,4 @@
-function uchart(ctx, y, line, margin=36) {
+uchart = (ctx, y, line, margin=36) => {
   let canvas = ctx.canvas
   let height = canvas.height
   let width = canvas.width
