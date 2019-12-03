@@ -1,7 +1,7 @@
 function uchart(ctx, y, line=false, margin=36) {
   let canvas = ctx.canvas   
-  let min = y.reduce((min, yi) => yi < min ? yi : min, Infinity)
-  let max = y.reduce((max, yi) => yi > max ? yi : max, -Infinity)
+  let min = Math.min(...y)
+  let max = Math.max(...y)
 
   let y_labels = [max, (max+min)/2, min]
 
