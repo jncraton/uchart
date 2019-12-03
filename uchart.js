@@ -4,10 +4,12 @@ function uchart(ctx, y, line=false, margin=36) {
   let min = Math.min(...y)
   let max = Math.max(...y)
 
-  let y_labels = [max, (max+min)/2, min]
-
-  ;[margin, height/2, height - margin].forEach((y, i) => {
-    ctx.fillText(y_labels[i], margin, y - 3)
+  ;[
+    [margin,max], 
+    [height/2,(max+min)/2], 
+    [height - margin, min]
+  ].forEach(([y,label]) => {
+    ctx.fillText(label, margin, y - 3)
     ctx.beginPath()
     ctx.moveTo(margin, y)
     ctx.lineTo(width - margin, y)
