@@ -18,7 +18,7 @@ function uchart(ctx, y, line, margin=36) {
 
   y.forEach((yi, i) => {
     let x = margin*2 + i * (width - 3*margin) / y.length
-    let y_pos = (margin + (yi - min) * (height - 2*margin) / (max-min))
+    let y_pos = margin + (yi - min) * (height - 2*margin) / (max-min)
     y_pos = height - y_pos
 
     if (line) {
