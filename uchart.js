@@ -5,11 +5,6 @@ uchart = (ctx, y, line, margin=36) => {
   let min = Math.min(...y)
   let max = Math.max(...y)
 
-  let draw_line = (x1,y1,x2) => {
-    if (x2) ctx.moveTo(x2, y1)
-    if (x1) ctx.lineTo(x1, y1)  
-  }
-
   ctx.beginPath()
   ;[
     [margin,max], 
@@ -17,21 +12,21 @@ uchart = (ctx, y, line, margin=36) => {
     [height - margin, min]
   ].forEach(([y,label]) => {
     ctx.fillText(label, margin, y - 3)
-    draw_line(margin, y, width-margin)
+    ctx.moveTo(margin, y)
+    ctx.lineTo(width - margin, y)
   })
 
-  y.reduce((prev, yi, i) => {
-    let x = margin*2 +  i * (width - 3*margin) / y.length
+  y.forEach((yi, i) => {
+    let x = margin*2 + i * (width - 3*margin) / y.length
     let y_pos = margin + (yi - min) * (height - 2*margin) / (max-min)
     y_pos = height - y_pos
 
     if (line) {
-      draw_line(prev ? x : 0, y_pos, prev ? 0 : x+3 )
+      if (i == 0) ctx.moveTo(x,y_pos)
+      else ctx.lineTo(x+3,y_pos)
     }
 
     ctx.fillRect(x,y_pos-3,6,6)
-
-    return x
-  },0)
+  })
   ctx.stroke()
 }
