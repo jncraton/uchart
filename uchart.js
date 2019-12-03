@@ -1,6 +1,7 @@
 function uchart(ctx, y, line, margin=36) {
-  let height = ctx.canvas.height
-  let width = ctx.canvas.width
+  let canvas = ctx.canvas
+  let height = canvas.height
+  let width = canvas.width
   let min = Math.min(...y)
   let max = Math.max(...y)
 
